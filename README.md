@@ -1,27 +1,41 @@
-#HealthLens
+# **HealthLens**
 
-##Symptom Checker & Diagnostics bot
+## Multilingual Symptom Checker & Diagnostics Bot
 
-## Prerequisites
-python >= 3.10 \
-npm
+### Prerequisites
+- Python >= 3.10  
+- npm
 
-## Commands to run the code
+### Commands to Run the Code
 
-In flask-backend directory
-```
-python -m venv .venv
+#### In `flask-backend` Directory
+1. Create a virtual environment:
+    ```bash
+    python -m venv .venv
+    ```
 
-source .venv/bin/activate
+2. Activate the virtual environment:
+    ```bash
+    source .venv/bin/activate
+    ```
 
-pip install requirements.txt
+3. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-python application.py
-```
+4. Start the Flask application:
+    ```bash
+    python application.py
+    ```
 
-In react-frontend directory
-```
-npm install
+#### In `react-frontend` Directory
+1. Install the required npm packages:
+    ```bash
+    npm install
+    ```
 
-npm start
-```
+2. Start the React development server:
+    ```bash
+    npm start
+    ```
