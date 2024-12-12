@@ -1,5 +1,7 @@
 #HealthLens
+
 ##Symptom Checker & Diagnostics bot
+
 ## Prerequisites
 python >= 3.10 \
 npm
