@@ -4,26 +4,33 @@ body,
   width: 100%;
   min-height: 100%;
   margin: 0;
-  background: #f7f8fa;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 183, 197, 0.45), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(195, 181, 255, 0.45), transparent 40%),
+    radial-gradient(circle at 70% 85%, rgba(176, 246, 226, 0.4), transparent 45%),
+    linear-gradient(135deg, #fff7fb 0%, #f3f6ff 50%, #f6fffb 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .App {
   min-height: 100vh;
   width: 100%;
-  color: #0b1220;
+  color: #1b1d2a;
   font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
-  padding: 24px 16px 40px;
+  padding: 28px 16px 44px;
   box-sizing: border-box;
 }
 
 .app-shell {
   max-width: 980px;
   margin: 0 auto;
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-  padding: 28px 28px 20px;
-  border: 1px solid #e9edf3;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 22px;
+  box-shadow: 0 24px 50px rgba(118, 120, 166, 0.18);
+  padding: 30px 30px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
 }
 
 .app-header {
@@ -36,15 +43,16 @@ body,
 }
 
 .app-title {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 6px;
   letter-spacing: -0.01em;
+  color: #2a2550;
 }
 
 .app-subtitle {
   margin: 0;
-  color: #7a8599;
+  color: #6a6f8c;
   font-size: 13px;
 }
 
@@ -60,16 +68,16 @@ body,
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #8a94a6;
+  color: #7c7f97;
 }
 
 .language-select {
   padding: 9px 12px;
-  border-radius: 10px;
-  border: 1px solid #e0e6ef;
-  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 205, 230, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   font-size: 13px;
-  color: #0b1220;
+  color: #2a2550;
 }
 
 .app-content {
@@ -79,12 +87,12 @@ body,
 }
 
 .chat-box {
-  border: 1px solid #edf1f7;
+  border: 1px solid rgba(214, 220, 242, 0.8);
   padding: 18px;
   height: 460px;
   overflow-y: auto;
-  border-radius: 16px;
-  background: #fbfcfe;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -93,13 +101,13 @@ body,
 .empty-state {
   margin: auto;
   text-align: center;
-  color: #8a94a6;
+  color: #8a8fb0;
 }
 
 .empty-title {
   font-weight: 600;
   margin-bottom: 6px;
-  color: #394157;
+  color: #3b3763;
 }
 
 .empty-text {
@@ -109,14 +117,14 @@ body,
 .message {
   max-width: 72%;
   padding: 12px 14px;
-  border-radius: 14px;
+  border-radius: 16px;
   font-size: 14px;
   line-height: 1.45;
-  box-shadow: none;
+  box-shadow: 0 10px 20px rgba(118, 120, 166, 0.12);
 }
 
 .user-message {
-  background: #0b1220;
+  background: linear-gradient(135deg, #ff8fb1 0%, #a78bfa 100%);
   color: #ffffff;
   align-self: flex-end;
   text-align: left;
@@ -124,8 +132,8 @@ body,
 
 .bot-message {
   background: #ffffff;
-  color: #0b1220;
-  border: 1px solid #e7ecf4;
+  color: #2a2550;
+  border: 1px solid rgba(220, 226, 246, 0.9);
   align-self: flex-start;
 }
 
@@ -133,10 +141,10 @@ body,
   display: flex;
   gap: 12px;
   padding: 10px 12px;
-  border-radius: 14px;
-  border: 1px solid #e7ecf4;
-  background: #ffffff;
-  box-shadow: none;
+  border-radius: 16px;
+  border: 1px solid rgba(214, 220, 242, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 22px rgba(118, 120, 166, 0.12);
 }
 
 .message-input {
@@ -145,39 +153,40 @@ body,
   border: none;
   font-size: 14px;
   outline: none;
-  color: #0b1220;
+  color: #2a2550;
   background: transparent;
 }
 
 .send-button {
   padding: 10px 16px;
-  background: #0b1220;
+  background: linear-gradient(135deg, #ff8fb1 0%, #7c9bff 100%);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   font-weight: 600;
-  transition: transform 0.12s ease, background 0.12s ease;
+  transition: transform 0.12s ease, filter 0.12s ease;
 }
 
 .send-button:hover {
   transform: translateY(-1px);
-  background: #111827;
+  filter: brightness(1.03);
 }
 
 .send-button:active {
   transform: translateY(0);
+  filter: brightness(0.98);
 }
 
 .detected-language {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.82);
   text-align: right;
   margin-top: 6px;
 }
 
 .bot-message .detected-language {
-  color: #7b879b;
+  color: #8a8fb0;
 }
 
 .display-linebreak {
@@ -187,7 +196,7 @@ body,
 .app-footer {
   margin-top: 18px;
   font-size: 11px;
-  color: #9aa4b4;
+  color: #9aa1b8;
   text-align: center;
 }
 
@@ -197,14 +206,14 @@ body,
   gap: 6px;
   padding: 12px 16px;
   background: #ffffff;
-  border: 1px solid #e7ecf4;
+  border: 1px solid rgba(220, 226, 246, 0.9);
 }
 
 .typing-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #8a94a6;
+  background: #b1b4c9;
   display: inline-block;
   animation: typingPulse 1.2s infinite ease-in-out;
 }
