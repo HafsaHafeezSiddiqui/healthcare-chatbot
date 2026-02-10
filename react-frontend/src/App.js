@@ -8,6 +8,7 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [language, setLanguage] = useState("auto");
   const [isTyping, setIsTyping] = useState(false);
+  const apiBase = process.env.REACT_APP_API_BASE || "";
 
   const handleSendMessage = (message) => {
     if (!message.trim()) return;
@@ -18,7 +19,7 @@ function App() {
     setIsTyping(true);
 
     // Send the message to the backend
-    fetch("/chat", {
+    fetch(`${apiBase}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message, language }),
