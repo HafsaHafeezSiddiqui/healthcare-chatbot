@@ -9,14 +9,24 @@ function InputBox({ onSendMessage }) {
     setInput(""); // Clear input after sending
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      handleSend();
+    }
+  };
+
   return (
     <div className="input-box">
       <input
+        className="message-input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyDown={handleKeyDown}
         placeholder="Describe your symptoms..."
+        aria-label="Describe your symptoms"
       />
-      <button onClick={handleSend}>Send</button>
+      <button className="send-button" onClick={handleSend}>Send</button>
     </div>
   );
 }

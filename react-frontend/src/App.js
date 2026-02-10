@@ -7,6 +7,7 @@ import LanguageSelector from "./components/LanguageSelector";
 function App() {
   const [messages, setMessages] = useState([]);
   const [language, setLanguage] = useState("auto");
+  const [isTyping, setIsTyping] = useState(false);
 
   const handleSendMessage = (message) => {
     if (!message.trim()) return;
@@ -14,6 +15,7 @@ function App() {
     // Add the user's message
     const userMessage = { text: message, type: "user", detectedLanguage: null };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setIsTyping(true);
 
     // Send the message to the backend
     fetch("/chat", {
@@ -38,14 +40,32 @@ function App() {
       })
       .catch((err) => {
         console.error("Error:", err);
+      })
+      .finally(() => {
+        setIsTyping(false);
       });
   };
 
   return (
     <div className="App">
-      <LanguageSelector setLanguage={setLanguage} />
-      <ChatBox messages={messages} />
-      <InputBox onSendMessage={handleSendMessage} />
+      <div className="app-shell">
+        <header className="app-header">
+          <div className="app-header-text">
+            <h1 className="app-title">HealthLens</h1>
+            <p className="app-subtitle">Multilingual symptom checker and health assistant</p>
+          </div>
+          <LanguageSelector setLanguage={setLanguage} />
+        </header>
+
+        <main className="app-content">
+          <ChatBox messages={messages} isTyping={isTyping} />
+          <InputBox onSendMessage={handleSendMessage} />
+        </main>
+
+        <footer className="app-footer">
+          This tool provides informational suggestions and is not medical advice.
+        </footer>
+      </div>
     </div>
   );
 }

@@ -3,9 +3,10 @@ import React from "react";
 function LanguageSelector({ setLanguage }) {
   return (
     <div className="language-selector">
-      <label htmlFor="language-select">Select Language:</label>
+      <label className="language-label" htmlFor="language-select">Response language</label>
       <select
         id="language-select"
+        className="language-select"
         defaultValue={"auto"}
         onChange={(e) => setLanguage(e.target.value)}
       >
